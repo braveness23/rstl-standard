@@ -1,0 +1,22 @@
+{
+    "id": "event-003",
+    "title": "Construction of Stonehenge",
+    "description": "The estimated time when Stonehenge was constructed.",
+    "location": "Wiltshire, England",
+    "time": {
+        "calendar": "Gregorian",
+        "precision": "approximate",
+        "approximate": "-3000",
+        "qualifier": "circa",
+        "uncertainty": "±200 years"
+    },
+    "metadata": {
+        "categories": [
+            "Archaeology",
+            "Prehistoric Monuments"
+        ],
+        "links": [
+            "https://en.wikipedia.org/wiki/Stonehenge"
+        ]
+    }
+}

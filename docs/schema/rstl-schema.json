@@ -1,0 +1,142 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "RSTL Event Schema",
+    "type": "object",
+    "required": [
+        "title",
+        "description",
+        "time"
+    ],
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "A unique identifier for the event."
+        },
+        "title": {
+            "type": "string",
+            "description": "The name of the event."
+        },
+        "description": {
+            "type": "string",
+            "description": "A detailed description of the event."
+        },
+        "location": {
+            "type": "string",
+            "description": "The geographical location of the event."
+        },
+        "time": {
+            "type": "object",
+            "required": [
+                "calendar"
+            ],
+            "properties": {
+                "calendar": {
+                    "type": "string",
+                    "description": "The calendar system used.",
+                    "enum": [
+                        "Gregorian",
+                        "Julian",
+                        "Islamic",
+                        "Hebrew",
+                        "Chinese",
+                        "GeologicalTime",
+                        "Custom"
+                    ]
+                },
+                "precision": {
+                    "type": "string",
+                    "description": "The precision of the time representation.",
+                    "enum": [
+                        "instant",
+                        "timespan",
+                        "approximate"
+                    ]
+                },
+                "instant": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "A precise point in time."
+                },
+                "start": {
+                    "type": "string",
+                    "description": "The start of the timespan."
+                },
+                "end": {
+                    "type": "string",
+                    "description": "The end of the timespan."
+                },
+                "approximate": {
+                    "type": "string",
+                    "description": "An approximate date."
+                },
+                "qualifier": {
+                    "type": "string",
+                    "description": "Qualifier indicating approximation."
+                },
+                "uncertainty": {
+                    "type": "string",
+                    "description": "The uncertainty range."
+                }
+            },
+            "oneOf": [
+                {
+                    "required": [
+                        "instant"
+                    ],
+                    "properties": {
+                        "precision": {
+                            "const": "instant"
+                        }
+                    }
+                },
+                {
+                    "required": [
+                        "start",
+                        "end"
+                    ],
+                    "properties": {
+                        "precision": {
+                            "const": "timespan"
+                        }
+                    }
+                },
+                {
+                    "required": [
+                        "approximate"
+                    ],
+                    "properties": {
+                        "precision": {
+                            "const": "approximate"
+                        }
+                    }
+                }
+            ]
+        },
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "categories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Categories or tags for the event."
+                },
+                "links": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "description": "Related URLs or URIs."
+                },
+                "additional": {
+                    "type": "object",
+                    "description": "Additional custom metadata."
+                }
+            },
+            "additionalProperties": true
+        }
+    },
+    "additionalProperties": false
+}

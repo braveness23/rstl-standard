@@ -1,0 +1,20 @@
+{
+    "id": "event-005",
+    "title": "Hijra (Migration to Medina)",
+    "description": "The migration of the Islamic prophet Muhammad and his followers from Mecca to Medina.",
+    "location": "From Mecca to Medina",
+    "time": {
+        "calendar": "Islamic",
+        "precision": "instant",
+        "instant": "0001-01-01",
+        "qualifier": "1 AH"
+    },
+    "metadata": {
+        "categories": [
+            "Islamic History"
+        ],
+        "links": [
+            "https://en.wikipedia.org/wiki/Hijra_(Islam)"
+        ]
+    }
+}

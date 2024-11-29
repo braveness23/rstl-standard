@@ -1,0 +1,20 @@
+{
+    "id": "event-001",
+    "title": "Moon Landing",
+    "description": "The first human landing on the Moon.",
+    "location": "Sea of Tranquility, Moon",
+    "time": {
+        "calendar": "Gregorian",
+        "precision": "instant",
+        "instant": "1969-07-20T20:17:00Z"
+    },
+    "metadata": {
+        "categories": [
+            "Space Exploration",
+            "NASA Missions"
+        ],
+        "links": [
+            "https://en.wikipedia.org/wiki/Apollo_11"
+        ]
+    }
+}

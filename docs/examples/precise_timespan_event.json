@@ -1,0 +1,20 @@
+{
+    "id": "event-002",
+    "title": "World War II",
+    "description": "A global war that lasted from 1939 to 1945.",
+    "time": {
+        "calendar": "Gregorian",
+        "precision": "timespan",
+        "start": "1939-09-01",
+        "end": "1945-09-02"
+    },
+    "metadata": {
+        "categories": [
+            "War",
+            "Global Conflict"
+        ],
+        "links": [
+            "https://en.wikipedia.org/wiki/World_War_II"
+        ]
+    }
+}

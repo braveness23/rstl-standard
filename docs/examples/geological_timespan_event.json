@@ -1,0 +1,18 @@
+{
+    "id": "event-004",
+    "title": "Jurassic Period",
+    "description": "A geological period and system that spanned 56 million years.",
+    "time": {
+        "calendar": "GeologicalTime",
+        "precision": "timespan",
+        "start": "-201300000",
+        "end": "-145000000",
+        "qualifier": "circa"
+    },
+    "metadata": {
+        "categories": [
+            "Geology",
+            "Earth History"
+        ]
+    }
+}
