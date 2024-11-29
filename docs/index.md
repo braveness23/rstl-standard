@@ -63,6 +63,8 @@ Each event in RSTL is represented as a JSON object with the following structure:
 | `time`        | object | Yes      | Temporal information of the event.                       |
 | `metadata`    | object | No       | Additional information like categories and links.        |
 
+---
+
 ### **Time Object**
 
 | Field         | Type   | Required | Description                                              |
@@ -77,6 +79,8 @@ Each event in RSTL is represented as a JSON object with the following structure:
 | `uncertainty` | string | No       | Uncertainty range (e.g., "±5 years").                    |
 
 *Conditional fields are required based on the `precision` value.
+
+---
 
 ### **Metadata Object**
 
@@ -227,6 +231,8 @@ Example 1: Precise Instant Event
 }
 ```
 
+---
+
 Example 2: Precise Timespan Event
 
 ```json
@@ -246,6 +252,8 @@ Example 2: Precise Timespan Event
   }
 }
 ```
+
+---
 
 Example 3: Approximate Date Event
 
@@ -269,6 +277,8 @@ Example 3: Approximate Date Event
 }
 ```
 
+---
+
 Example 4: Geological Timespan Event
 
 ```json
@@ -288,6 +298,8 @@ Example 4: Geological Timespan Event
   }
 }
 ```
+
+---
 
 Example 5: Event in a Different Calendar System
 
@@ -310,38 +322,46 @@ Example 5: Event in a Different Calendar System
 }
 ```
 
+---
+
 ## Implementation Guidelines
 
 ### Time Fields
 
-ISO 8601 Format: Use ISO 8601 extended format for instant, start, and end fields.
+**ISO 8601 Format:** Use ISO 8601 extended format for instant, start, and end fields.
 Years Beyond Standard Range: ISO 8601 allows expanded representations for years outside the standard range (e.g., -0001 for 1 BCE).
-Negative Years: Represent BCE dates with negative years (e.g., -0444 for 444 BCE).
-Large Numbers: Use strings to represent large numbers, especially for geological times (e.g., "-201300000").
+
+**Negative Years:** Represent BCE dates with negative years (e.g., -0444 for 444 BCE).
+
+**Large Numbers:** Use strings to represent large numbers, especially for geological times (e.g., "-201300000").
 
 ### Calendar Systems
 
-Supported Calendars: The calendar field should be one of the supported systems: "Gregorian", "Julian", "Islamic", "Hebrew", "Chinese", "GeologicalTime", or "Custom".
+**Supported Calendars:** The calendar field should be one of the supported systems: "Gregorian", "Julian", "Islamic", "Hebrew", "Chinese", "GeologicalTime", or "Custom".
 
-Custom Calendars: If using a non-standard calendar, set calendar to "Custom" and provide details in metadata.additional.
+**Custom Calendars:** If using a non-standard calendar, set calendar to "Custom" and provide details in metadata.additional.
 
-Conversion Utilities: Consider developing utilities to convert dates between calendar systems if necessary.
+**Conversion Utilities:** Consider developing utilities to convert dates between calendar systems if necessary.
 
 ### Qualifiers and Uncertainty
 
-Qualifiers: Use the qualifier field to express approximate dates (e.g., "circa", "approximately").
-Uncertainty: Use the uncertainty field to express the range of uncertainty (e.g., "±5 years").
+**Qualifiers:** Use the qualifier field to express approximate dates (e.g., "circa", "approximately").
+
+**Uncertainty:** Use the uncertainty field to express the range of uncertainty (e.g., "±5 years").
 
 ### Metadata Extension
 
-Flexible Metadata: The metadata.additional object can hold any key-value pairs for extended information.
-Links: Include relevant URLs in the links array for more information.
+**Flexible Metadata:** The metadata.additional object can hold any key-value pairs for extended information.
+
+**Links:** Include relevant URLs in the links array for more information.
 
 ### Storage and Querying in NoSQL Databases
 
-Document Structure: Store each event as a separate document in your NoSQL database.
-Indexing: Index time fields and metadata categories for efficient querying.
-Querying: Utilize the database's querying capabilities to filter events based on time ranges, categories, and other criteria.
+**Document Structure:** Store each event as a separate document in your NoSQL database.
+
+**Indexing:** Index time fields and metadata categories for efficient querying.
+
+**Querying:** Utilize the database's querying capabilities to filter events based on time ranges, categories, and other criteria.
 
 ### Example Queries (MongoDB)
 
