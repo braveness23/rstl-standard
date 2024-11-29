@@ -325,25 +325,27 @@ Custom Calendars: If using a non-standard calendar, set calendar to "Custom" and
 
 Conversion Utilities: Consider developing utilities to convert dates between calendar systems if necessary.
 
-Qualifiers and Uncertainty
+### Qualifiers and Uncertainty
 
 Qualifiers: Use the qualifier field to express approximate dates (e.g., "circa", "approximately").
 Uncertainty: Use the uncertainty field to express the range of uncertainty (e.g., "±5 years").
 
-Metadata Extension
+### Metadata Extension
 
 Flexible Metadata: The metadata.additional object can hold any key-value pairs for extended information.
 Links: Include relevant URLs in the links array for more information.
 
-Storage and Querying in NoSQL Databases
+### Storage and Querying in NoSQL Databases
+
 Document Structure: Store each event as a separate document in your NoSQL database.
 Indexing: Index time fields and metadata categories for efficient querying.
 Querying: Utilize the database's querying capabilities to filter events based on time ranges, categories, and other criteria.
 
-Example Queries (MongoDB)
+### Example Queries (MongoDB)
 
-Find Events in a Time Range
+- Find Events in a Time Range
 
+```javascript
 db.events.find({
   $or: [
     {
@@ -358,27 +360,17 @@ db.events.find({
     }
   ]
 })
+```
 
-db.events.find({
-  $or: [
-    {
-      "time.instant": {
-        $gte: "1900-01-01T00:00:00Z",
-        $lte: "2000-12-31T23:59:59Z"
-      }
-    },
-    {
-      "time.start": { $lte: "2000-12-31T23:59:59Z" },
-      "time.end": { $gte: "1900-01-01T00:00:00Z" }
-    }
-  ]
-})
+`
 
-## Find Events with a Specific Category
+- Find Events with a Specific Category
 
+```javascript
 db.events.find({
   "metadata.categories": "Space Exploration"
 })
+```
 
 ## Contributing
 
@@ -386,16 +378,19 @@ We welcome contributions from the community!
 
 ## How to Contribute
 
-Fork the Repository: Create a personal copy of the repository.
-Create a Branch: Use descriptive names (e.g., feature/add-new-calendar).
-Make Changes: Implement your feature or fix.
-Commit: Write clear and concise commit messages.
-Push and Pull Request: Push your branch and open a pull request against the develop branch.
-Review: Participate in the review process and make any necessary changes.
-Contribution Guidelines
-Code Style: Follow the established code style guidelines.
-Testing: Write unit tests for new code and ensure all tests pass.
-Documentation: Update or add documentation for your changes.
+1. Fork the Repository: Create a personal copy of the repository.
+2. Create a Branch: Use descriptive names (e.g., feature/add-new-calendar).
+3. Make Changes: Implement your feature or fix.
+4. Commit: Write clear and concise commit messages.
+5. Push and Pull Request: Push your branch and open a pull request against the develop branch.
+6. Review: Participate in the review process and make any necessary changes.
+
+## Contribution Guidelines
+
+- Code Style: Follow the established code style guidelines.
+- Testing: Write unit tests for new code and ensure all tests pass.
+- Documentation: Update or add documentation for your changes.
+
 For detailed guidelines, see CONTRIBUTING.md.
 
 ## License
