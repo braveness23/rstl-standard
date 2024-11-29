@@ -201,8 +201,10 @@ The RSTL JSON Schema defines the structure and constraints of the data format. I
   },
   "additionalProperties": false
 }
+```
 
 ## Examples
+
 Explore practical examples of RSTL events:
 
 Example 1: Precise Instant Event
