@@ -1,9 +1,5 @@
 # Really Simple Time Line (RSTL) Documentation
 
-RSTL is a JSON-based data format designed to represent events across all periods of history, with varying levels of time precision and calendar systems. It is optimized for use with NoSQL databases and aims to be both flexible and extensible.
-
----
-
 ## Contents
 
 - [Introduction](#introduction)
